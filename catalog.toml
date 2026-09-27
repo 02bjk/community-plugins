@@ -3087,3 +3087,16 @@ icon = "package"
 description = "Monitor and manage RakuOS updates with rum."
 plugin_api = 3
 tags = ["system", "utility"]
+
+[[plugin]]
+id = "gamaraan/mx-control"
+name = "MX Control"
+version = "0.2.1"
+updated_at = 1790468021
+added_at = 1790468021
+author = "gamaraan"
+license = "GPL-2.0-or-later"
+icon = "mouse"
+description = "Battery, DPI, SmartShift, buttons, Easy-Switch, profiles and gesture shortcuts for Logitech MX devices via Solaar."
+plugin_api = 24
+tags = ["hardware", "bar", "panel", "service", "indicator", "hyprland"]
