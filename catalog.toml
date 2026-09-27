@@ -1843,13 +1843,13 @@ tags = ["system", "hardware", "utility"]
 [[plugin]]
 id = "teagar/omniroute-quota"
 name = "OmniRoute Quota"
-version = "0.1.0"
-updated_at = 1787833165
+version = "0.2.0"
+updated_at = 1790518786
 added_at = 1787833165
 author = "Teagar"
 license = "MIT"
 icon = "route"
-description = "Monitor Codex 5-hour and weekly quotas for every OmniRoute account."
+description = "Monitor Codex quotas for OpenCode and OmniRoute accounts."
 plugin_api = 22
 tags = ["ai", "bar", "panel", "service", "indicator", "utility"]
 
