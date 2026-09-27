@@ -3,13 +3,13 @@
     "tooltip": "Antigravity Agent CLI (Click: project | Right-click: home)"
   },
   "settings": {
-    "show_label": {
-      "label": "Show label in bar",
-      "description": "Show the AGY text label next to the icon in the bar."
-    },
     "project_dir": {
-      "label": "Project directory",
-      "description": "Default workspace directory to open when clicking the widget."
+      "description": "Default workspace directory to open when clicking the widget.",
+      "label": "Project directory"
+    },
+    "show_label": {
+      "description": "Show the AGY text label next to the icon in the bar.",
+      "label": "Show label in bar"
     }
   }
 }
