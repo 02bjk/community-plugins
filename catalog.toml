@@ -3119,3 +3119,16 @@ icon = "checkbox"
 description = "Today's and overdue Vikunja tasks, with quick add, complete and postpone."
 plugin_api = 24
 tags = ["bar", "panel", "service", "launcher", "productivity"]
+
+[[plugin]]
+id = "nicomaure/agy"
+name = "Antigravity AGY"
+version = "1.0.0"
+updated_at = 1790549465
+added_at = 1790549465
+author = "nicomaure.com.ar"
+license = "MIT"
+icon = "sparkles"
+description = "Quick bar launcher for the Antigravity Agent CLI (agy)."
+plugin_api = 24
+tags = ["ai", "utility", "bar", "productivity"]
