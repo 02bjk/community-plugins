@@ -265,8 +265,8 @@ tags = ["audio", "bar", "recording", "utility"]
 [[plugin]]
 id = "nightwatch75/file-search"
 name = "File Search"
-version = "0.2.0"
-updated_at = 1788534085
+version = "0.3.0"
+updated_at = 1790519222
 added_at = 1784296152
 author = "nightwatch75"
 license = "MIT"
@@ -3091,8 +3091,8 @@ tags = ["system", "utility"]
 [[plugin]]
 id = "gamaraan/mx-control"
 name = "MX Control"
-version = "0.2.1"
-updated_at = 1790468021
+version = "0.2.2"
+updated_at = 1790519199
 added_at = 1790468021
 author = "gamaraan"
 license = "GPL-2.0-or-later"
