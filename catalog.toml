@@ -3078,12 +3078,12 @@ tags = ["bar", "indicator", "niri", "productivity", "system"]
 [[plugin]]
 id = "etrigan63/rum-updates"
 name = "RUM Updates"
-version = "0.1.5"
-updated_at = 1790426889
+version = "0.1.6"
+updated_at = 1790467331
 added_at = 1790381127
 author = "etrigan63"
 license = "MIT"
-icon = "download"
+icon = "package"
 description = "Monitor and manage RakuOS updates with rum."
 plugin_api = 3
 tags = ["system", "utility"]
