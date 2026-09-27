@@ -130,6 +130,7 @@ body:
         - mimir
         - mini-docker
         - misr-quran-radio
+        - mx-control
         - nan-usage
         - network-control
         - network-toolkit
