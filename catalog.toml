@@ -3100,3 +3100,16 @@ icon = "mouse"
 description = "Battery, DPI, SmartShift, buttons, Easy-Switch, profiles and gesture shortcuts for Logitech MX devices via Solaar."
 plugin_api = 24
 tags = ["hardware", "bar", "panel", "service", "indicator", "hyprland"]
+
+[[plugin]]
+id = "omertahaoztop/vikunja"
+name = "Vikunja"
+version = "1.0.0"
+updated_at = 1790468776
+added_at = 1790468776
+author = "omertahaoztop"
+license = "MIT"
+icon = "checkbox"
+description = "Today's and overdue Vikunja tasks, with quick add, complete and postpone."
+plugin_api = 24
+tags = ["bar", "panel", "service", "launcher", "productivity"]
