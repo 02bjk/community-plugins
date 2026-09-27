@@ -2473,8 +2473,8 @@ tags = ["ai", "development", "bar", "panel", "service", "productivity"]
 [[plugin]]
 id = "muhammadessam/umbriel-monitor-control"
 name = "Umbriel Monitor Control"
-version = "0.3.0"
-updated_at = 1790165665
+version = "0.3.1"
+updated_at = 1790485981
 added_at = 1789146573
 author = "muhammadessam"
 license = "MIT"
