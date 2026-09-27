@@ -2065,15 +2065,21 @@ tags = ["desktop", "utility"]
 [[plugin]]
 id = "aabidk20/yt-music"
 name = "YouTube Music"
-version = "0.2.8"
-updated_at = 1790338491
+version = "0.3.0"
+updated_at = 1790549410
 added_at = 1788315521
 author = "Aabid"
 license = "MIT"
 icon = "brand-youtube-filled"
 description = "YouTube Music client for Noctalia v5 - miniplayer & full view"
-plugin_api = 23
+plugin_api = 26
 tags = ["music", "media"]
+
+[[plugin.release]]
+plugin_api = 23
+version = "0.2.8"
+updated_at = 1790338491
+rev = "69edf25c45dc117d258a37106c2331787fac9a7a"
 
 [[plugin]]
 id = "0lucasmatheus/awwwall"
