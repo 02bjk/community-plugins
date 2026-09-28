@@ -151,8 +151,8 @@ tags = ["nixos", "utility"]
 [[plugin]]
 id = "nightwatch75/todo"
 name = "To Do"
-version = "1.2.1"
-updated_at = 1790466807
+version = "1.2.2"
+updated_at = 1790597329
 added_at = 1784158920
 author = "nightwatch75"
 license = "MIT"
