@@ -1693,8 +1693,8 @@ rev = "f01631bd804b9b80fd00409ed3d5c7eb08bbde6f"
 [[plugin]]
 id = "wy3z/opencodex-bar"
 name = "OpenCodexBar"
-version = "1.0.1"
-updated_at = 1788111346
+version = "1.0.2"
+updated_at = 1790554762
 added_at = 1787609125
 author = "wy3z"
 license = "MIT"
