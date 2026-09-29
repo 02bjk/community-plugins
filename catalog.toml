@@ -3070,8 +3070,8 @@ tags = ["panel", "shortcut", "bar", "time", "utility"]
 [[plugin]]
 id = "teagar/niri-workspace-preview"
 name = "Niri Workspace Preview"
-version = "1.0.1"
-updated_at = 1790377249
+version = "1.1.0"
+updated_at = 1790644179
 added_at = 1790342081
 author = "Teagar"
 license = "MIT"
