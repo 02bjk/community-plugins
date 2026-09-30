@@ -208,6 +208,7 @@ body:
         - ssh-launcher
         - sticky-notes
         - super-productivity
+        - sway-mode
         - syncthing
         - system-monitor
         - system-updater
