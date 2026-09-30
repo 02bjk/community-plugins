@@ -3145,3 +3145,16 @@ icon = "arrows-move-horizontal"
 description = "Protects OLED screens from bar burn-in: measures your bar, simulates wear and shifts it smartly."
 plugin_api = 30
 tags = ["bar", "panel", "service", "shortcut", "utility", "hardware", "hyprland", "niri", "sway", "labwc", "mangowc"]
+
+[[plugin]]
+id = "zumik3-del/opencode-go-usage"
+name = "Opencode Go Usage"
+version = "1.2.0"
+updated_at = 1790732739
+added_at = 1790732739
+author = "zumik3-del"
+license = "MIT"
+icon = "brand-openai"
+description = "Opencode Go usage limits in the bar, with a details panel for the 5-hour, weekly and monthly meters."
+plugin_api = 28
+tags = ["bar", "panel", "service", "ai", "productivity", "indicator"]
