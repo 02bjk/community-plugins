@@ -3158,3 +3158,16 @@ icon = "brand-openai"
 description = "Opencode Go usage limits in the bar, with a details panel for the 5-hour, weekly and monthly meters."
 plugin_api = 28
 tags = ["bar", "panel", "service", "ai", "productivity", "indicator"]
+
+[[plugin]]
+id = "hakanct/saved-desktop-widgets"
+name = "Saved Desktop Widgets"
+version = "1.0.0"
+updated_at = 1790733266
+added_at = 1790733266
+author = "hakanct"
+license = "MIT"
+icon = "puzzle"
+description = "A plugin that allows you to have multiple setups for your desktop widgets based on the wallpaper."
+plugin_api = 26
+tags = ["bar", "desktop", "panel", "service", "utility", "wallpaper"]
