@@ -1,0 +1,42 @@
+{
+  "launcher": {
+    "text": "Widgets"
+  },
+  "service": {
+    "title": "Widget Saver",
+    "error_title": "Error",
+    "applying": "Applying saved layout for this wallpaper...",
+    "applied": "Layout applied successfully! Reloading...",
+    "failed": "Failed to inject state",
+    "no_layout": "No saved layout for this wallpaper.",
+    "saved": "Layout change detected and saved."
+  },
+  "settings": {
+    "title": "Saved Desktop Widgets",
+    "general": "General",
+    "save_widgets_auto": "Save widgets automatically",
+    "load_widgets_auto": "Load widgets automatically",
+    "saved_layouts": "Saved Layouts",
+    "nuke_all": "Nuke All",
+    "nuke_all_notification": "All saved layouts cleared.",
+    "no_widgets_saved": "No widgets saved yet.",
+    "remove_widget": "Remove saved widgets for this wallpaper",
+    "list": {
+      "remove": "Remove the following desktop widget setup."
+    },
+    "load_widgets": {
+      "description": "Enable the loading of the widgets when the wallpaper changes.",
+      "label": "Load Widgets"
+    },
+    "save_widgets": {
+      "description": "Enable saving the widgets whenever they are changed.",
+      "label": "Save Widgets"
+    },
+    "tool_row": {
+      "nuke": {
+        "text": "Nuke",
+        "tooltip": "Remove all setups. WARNING: THIS WILL REMOVE ALL THE OTHER SETUPS EXCEPT THE CURRENT ONE!"
+      }
+    }
+  }
+}
