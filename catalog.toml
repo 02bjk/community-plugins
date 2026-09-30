@@ -3162,8 +3162,8 @@ tags = ["bar", "panel", "service", "ai", "productivity", "indicator"]
 [[plugin]]
 id = "hakanct/saved-desktop-widgets"
 name = "Saved Desktop Widgets"
-version = "1.0.0"
-updated_at = 1790733266
+version = "1.0.1"
+updated_at = 1790806628
 added_at = 1790733266
 author = "hakanct"
 license = "MIT"
@@ -3184,3 +3184,16 @@ icon = "sun"
 description = "Adapts panel brightness to the ambient light sensor, and hands control back the moment you touch the brightness keys."
 plugin_api = 24
 tags = ["hardware", "system"]
+
+[[plugin]]
+id = "ismay/sway-mode"
+name = "Sway Mode"
+version = "1.0.0"
+updated_at = 1790806605
+added_at = 1790806605
+author = "ismay"
+license = "MIT"
+icon = "square-letter-m"
+description = "Displays the current Sway mode."
+plugin_api = 24
+tags = ["bar", "sway", "indicator"]
