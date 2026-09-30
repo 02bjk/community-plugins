@@ -166,6 +166,7 @@ body:
         - pass
         - phone-connect
         - phone-operate
+        - pixel-shift
         - podcasts
         - pomodoro
         - portctl
