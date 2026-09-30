@@ -2648,8 +2648,8 @@ tags = ["bar", "panel", "service", "productivity", "utility"]
 [[plugin]]
 id = "tordex/processes"
 name = "Processes"
-version = "2.0.0"
-updated_at = 1789931424
+version = "2.1.0"
+updated_at = 1790806146
 added_at = 1789389846
 author = "tordex"
 license = "MIT"
