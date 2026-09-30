@@ -190,6 +190,7 @@ body:
         - ruh-vpn
         - rum-updates
         - run-path
+        - saved-desktop-widgets
         - screen-toolkit
         - share-wifi
         - sharednd
