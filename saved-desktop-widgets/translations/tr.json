@@ -3,24 +3,16 @@
     "text": "Widget'lar"
   },
   "service": {
-    "title": "Widget Koruyucu",
-    "error_title": "Hata",
-    "applying": "Bu duvar kağıdı için kaydedilen düzen uygulanıyor...",
     "applied": "Düzen başarıyla uygulandı! Yeniden yükleniyor...",
+    "applying": "Bu duvar kağıdı için kaydedilen düzen uygulanıyor...",
+    "error_title": "Hata",
     "failed": "Durum enjekte edilemedi",
     "no_layout": "Bu duvar kağıdı için kaydedilmiş düzen yok.",
-    "saved": "Düzen değişikliği algılandı ve kaydedildi."
+    "saved": "Düzen değişikliği algılandı ve kaydedildi.",
+    "title": "Widget Koruyucu"
   },
   "settings": {
-    "title": "Kaydedilmiş Masaüstü Widget'ları",
     "general": "Genel",
-    "save_widgets_auto": "Widget'ları otomatik kaydet",
-    "load_widgets_auto": "Widget'ları otomatik yükle",
-    "saved_layouts": "Kaydedilmiş Düzenler",
-    "nuke_all": "Hepsini Sıfırla",
-    "nuke_all_notification": "Kaydedilen tüm düzenler temizlendi.",
-    "no_widgets_saved": "Henüz kaydedilmiş widget yok.",
-    "remove_widget": "Bu duvar kağıdı için kaydedilen widget'ları kaldır",
     "list": {
       "remove": "Aşağıdaki masaüstü widget kurulumunu kaldır."
     },
@@ -28,10 +20,18 @@
       "description": "Duvar kağıdı değiştiğinde widget'ların yüklenmesini etkinleştir.",
       "label": "Widget'ları Yükle"
     },
+    "load_widgets_auto": "Widget'ları otomatik yükle",
+    "no_widgets_saved": "Henüz kaydedilmiş widget yok.",
+    "nuke_all": "Hepsini Sıfırla",
+    "nuke_all_notification": "Kaydedilen tüm düzenler temizlendi.",
+    "remove_widget": "Bu duvar kağıdı için kaydedilen widget'ları kaldır",
     "save_widgets": {
       "description": "Değiştirildikçe widget'ların kaydedilmesini etkinleştir.",
       "label": "Widget'ları Kaydet"
     },
+    "save_widgets_auto": "Widget'ları otomatik kaydet",
+    "saved_layouts": "Kaydedilmiş Düzenler",
+    "title": "Kaydedilmiş Masaüstü Widget'ları",
     "tool_row": {
       "nuke": {
         "text": "Her Şeyi Sıfırla",

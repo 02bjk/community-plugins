@@ -1,64 +1,64 @@
 {
-  "settings": {
-    "api_key": {
-      "label": "API key",
-      "description": "Your Opencode Go key, e.g. oc_sk_..."
-    },
-    "refresh_interval": {
-      "label": "Refresh interval",
-      "description": "How often to poll opencode.ai for usage, in seconds (60-86400)."
-    },
-    "bar_limit": {
-      "label": "Show in bar",
-      "description": "Which usage limit the bar capsule shows. Choose icon only to hide the percentage.",
-      "option": {
-        "5h": "5-hour limit",
-        "week": "Weekly limit",
-        "month": "Monthly limit",
-        "none": "Icon only"
-      }
-    }
+  "bar": {
+    "empty": "—",
+    "title": "Opencode Go Usage",
+    "tooltip_meter": "Opencode Go — {meter}: {percent}",
+    "tooltip_text": "Opencode Go — {text}",
+    "unavailable": "unavailable"
   },
   "meter": {
     "five_hour": "5-hour Usage",
-    "week": "Weekly Usage",
     "month": "Monthly Usage",
     "short_five_hour": "5h",
+    "short_month": "month",
     "short_week": "week",
-    "short_month": "month"
+    "week": "Weekly Usage"
+  },
+  "panel": {
+    "empty": "—",
+    "key_hint": "Add your oc_sk_... key under Settings → Plugins → gear icon.",
+    "no_meters": "No usage meters reported for this account.",
+    "refresh": "Refresh",
+    "title": "Opencode Go",
+    "unavailable": "Usage unavailable",
+    "waiting": "Waiting for the usage service…"
+  },
+  "reset": {
+    "days_hours": "Resets in {days}d {hours}h",
+    "hours_mins": "Resets in {hours}h {mins}m",
+    "mins": "Resets in {mins}m",
+    "now": "Resets now"
+  },
+  "settings": {
+    "api_key": {
+      "description": "Your Opencode Go key, e.g. oc_sk_...",
+      "label": "API key"
+    },
+    "bar_limit": {
+      "description": "Which usage limit the bar capsule shows. Choose icon only to hide the percentage.",
+      "label": "Show in bar",
+      "option": {
+        "5h": "5-hour limit",
+        "month": "Monthly limit",
+        "none": "Icon only",
+        "week": "Weekly limit"
+      }
+    },
+    "refresh_interval": {
+      "description": "How often to poll opencode.ai for usage, in seconds (60-86400).",
+      "label": "Refresh interval"
+    }
+  },
+  "status": {
+    "http_error": "Usage unavailable (HTTP {status}, check API key)",
+    "loading": "Loading…",
+    "need_key": "Set API key in settings",
+    "network": "Usage unavailable (network error)",
+    "no_meter": "Usage unavailable (check API key)",
+    "refused": "Usage unavailable (request refused)"
   },
   "tier": {
     "active": "Active",
     "cancelling": "Cancelling"
-  },
-  "reset": {
-    "now": "Resets now",
-    "days_hours": "Resets in {days}d {hours}h",
-    "hours_mins": "Resets in {hours}h {mins}m",
-    "mins": "Resets in {mins}m"
-  },
-  "status": {
-    "loading": "Loading…",
-    "need_key": "Set API key in settings",
-    "no_meter": "Usage unavailable (check API key)",
-    "network": "Usage unavailable (network error)",
-    "refused": "Usage unavailable (request refused)",
-    "http_error": "Usage unavailable (HTTP {status}, check API key)"
-  },
-  "bar": {
-    "title": "Opencode Go Usage",
-    "unavailable": "unavailable",
-    "empty": "—",
-    "tooltip_meter": "Opencode Go — {meter}: {percent}",
-    "tooltip_text": "Opencode Go — {text}"
-  },
-  "panel": {
-    "title": "Opencode Go",
-    "refresh": "Refresh",
-    "waiting": "Waiting for the usage service…",
-    "unavailable": "Usage unavailable",
-    "key_hint": "Add your oc_sk_... key under Settings → Plugins → gear icon.",
-    "no_meters": "No usage meters reported for this account.",
-    "empty": "—"
   }
 }
