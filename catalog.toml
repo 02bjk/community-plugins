@@ -2557,8 +2557,8 @@ tags = ["bar", "panel", "service", "network", "system", "utility"]
 [[plugin]]
 id = "nilsonlinux/contact-sounds"
 name = "Contact Notification Sounds"
-version = "1.5.1"
-updated_at = 1789910760
+version = "1.5.2"
+updated_at = 1790732854
 added_at = 1789256312
 author = "Nilsonlinux"
 license = "MIT"
