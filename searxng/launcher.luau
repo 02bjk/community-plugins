@@ -8,6 +8,9 @@ local DEFAULT_INSTANCE = "https://search.lumy.live"
 local activeQuery = ""
 local requestSequence = 0
 
+noctalia.log("[searxng] launcher provider script initialized")
+
+
 local HTML_ENTITIES = {
   ["&amp;"] = "&",
   ["&lt;"] = "<",
@@ -149,6 +152,7 @@ local function buildResults(query, payload)
 end
 
 function onQuery(query)
+  noctalia.log("[searxng] onQuery: '" .. tostring(query) .. "'")
   local text = trim(query)
   activeQuery = query
   requestSequence = requestSequence + 1
@@ -209,6 +213,7 @@ function onQuery(query)
   }
 
   noctalia.http(req, function(response)
+    noctalia.log("[searxng] HTTP response status: " .. tostring(response.status) .. ", ok=" .. tostring(response.ok))
     if sequence ~= requestSequence or activeQuery ~= query then
       return
     end
@@ -259,6 +264,7 @@ function onQuery(query)
 end
 
 function onActivate(id)
+  noctalia.log("[searxng] onActivate: " .. tostring(id))
   if type(id) ~= "string" then
     return
   end
