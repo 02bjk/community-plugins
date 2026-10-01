@@ -1,7 +1,7 @@
 --!nonstrict
 -- SearXNG search launcher provider.
 --
--- Usage from launcher: `/sx <query>`
+-- Usage from launcher: `/sx <query>` or via global launcher search.
 -- Queries SearXNG instance for private search results, instant answers, and snippets.
 
 local DEFAULT_INSTANCE = "https://search.lumy.live"
@@ -57,15 +57,6 @@ local function getInstanceUrl()
   return url:gsub("/+$", "")
 end
 
-local function errorRow(title, subtitle, glyph)
-  return {
-    id = "status",
-    title = title,
-    subtitle = subtitle,
-    glyph = glyph or "alert-triangle",
-  }
-end
-
 local function buildResults(query, payload)
   local rows = {}
   local text = trim(query)
@@ -88,6 +79,7 @@ local function buildResults(query, payload)
           glyph = "bulb",
           badge = noctalia.tr("results.answer_badge"),
           presentation = "detail",
+          score = 600,
         })
       end
     end
@@ -102,6 +94,7 @@ local function buildResults(query, payload)
   end
 
   if type(payload.results) == "table" then
+    local rank = 0
     for _, item in ipairs(payload.results) do
       if #rows >= maxResults then
         break
@@ -116,6 +109,7 @@ local function buildResults(query, payload)
           content = item.url
         end
 
+        rank = rank + 1
         local engine = type(item.engine) == "string" and item.engine or nil
         table.insert(rows, {
           id = "url:" .. item.url,
@@ -124,6 +118,7 @@ local function buildResults(query, payload)
           badge = engine,
           glyph = "world",
           presentation = "detail",
+          score = math.max(100, 500 - rank),
         })
       end
     end
@@ -131,19 +126,23 @@ local function buildResults(query, payload)
 
   -- 3. Empty State Handling
   if #rows == 0 then
-    table.insert(
-      rows,
-      errorRow(noctalia.tr("results.no_results_title"), noctalia.tr("results.no_results_subtitle"), "info-circle")
-    )
+    table.insert(rows, {
+      id = "status",
+      title = noctalia.tr("results.no_results_title"),
+      subtitle = noctalia.tr("results.no_results_subtitle"),
+      glyph = "info-circle",
+      score = 100,
+    })
   end
 
-  -- 4. Always provide Fallback Option to open SearXNG Web Interface
+  -- 4. Always provide Fallback / Search Page Option
   local searchPageUrl = getInstanceUrl() .. "/search?q=" .. noctalia.string.urlEncode(text)
   table.insert(rows, {
     id = "url:" .. searchPageUrl,
     title = noctalia.tr("results.open_search_title", { query = text }),
     subtitle = searchPageUrl,
     glyph = "world-search",
+    score = 50,
   })
 
   return rows
@@ -162,21 +161,26 @@ function onQuery(query)
         title = noctalia.tr("hint.title"),
         subtitle = noctalia.tr("hint.subtitle"),
         glyph = "world-search",
+        score = 200,
       },
     })
     return
   end
 
+  local instance = getInstanceUrl()
+  local searchPageUrl = instance .. "/search?q=" .. noctalia.string.urlEncode(text)
+
+  -- Immediately display an actionable search row with loader so the UI never displays "no results found"
   launcher.setResults(query, {
     {
-      id = "loading",
-      title = noctalia.tr("loading.title"),
-      subtitle = text,
+      id = "url:" .. searchPageUrl,
+      title = noctalia.tr("results.open_search_title", { query = text }),
+      subtitle = noctalia.tr("loading.title"),
       glyph = "loader",
+      score = 500,
     },
   })
 
-  local instance = getInstanceUrl()
   local categories = noctalia.getConfig("categories")
   if type(categories) ~= "string" or categories == "" then
     categories = "general"
@@ -200,7 +204,7 @@ function onQuery(query)
     method = "GET",
     headers = {
       "Accept: application/json",
-      "User-Agent: Noctalia-SearXNG-Launcher/1.0",
+      "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0",
     },
   }
 
@@ -211,39 +215,40 @@ function onQuery(query)
 
     if not response.ok or response.status == 0 then
       launcher.setResults(query, {
-        errorRow(noctalia.tr("errors.network_title"), noctalia.tr("errors.network_subtitle")),
+        {
+          id = "url:" .. searchPageUrl,
+          title = noctalia.tr("results.open_search_title", { query = text }),
+          subtitle = noctalia.tr("errors.network_subtitle"),
+          glyph = "world-search",
+          score = 500,
+        },
       })
       return
     end
 
-    if response.status == 403 then
+    if response.status >= 400 then
       launcher.setResults(query, {
-        errorRow(
-          noctalia.tr("errors.format_disabled_title"),
-          noctalia.tr("errors.format_disabled_subtitle", { instance = instance })
-        ),
-      })
-      return
-    elseif response.status == 429 then
-      launcher.setResults(query, {
-        errorRow(noctalia.tr("errors.rate_limit_title"), noctalia.tr("errors.rate_limit_subtitle")),
-      })
-      return
-    elseif response.status >= 400 then
-      launcher.setResults(query, {
-        errorRow(noctalia.tr("errors.server_title"), "HTTP " .. tostring(response.status)),
+        {
+          id = "url:" .. searchPageUrl,
+          title = noctalia.tr("results.open_search_title", { query = text }),
+          subtitle = "HTTP " .. tostring(response.status) .. " - press Enter to search in browser",
+          glyph = "world-search",
+          score = 500,
+        },
       })
       return
     end
 
-    -- Fast native C++ JSON decode; no heavy Lua regex string manipulation
     local decoded, err = noctalia.json.decode(response.body or "")
     if type(decoded) ~= "table" then
       launcher.setResults(query, {
-        errorRow(
-          noctalia.tr("errors.parse_title"),
-          err or "SearXNG instance returned non-JSON response."
-        ),
+        {
+          id = "url:" .. searchPageUrl,
+          title = noctalia.tr("results.open_search_title", { query = text }),
+          subtitle = "Invalid JSON - press Enter to search in browser",
+          glyph = "world-search",
+          score = 500,
+        },
       })
       return
     end
@@ -260,7 +265,6 @@ function onActivate(id)
 
   local url = id:match("^url:(https?://.+)$")
   if url ~= nil and isValidUrl(url) then
-    -- Secure execution via argv array without shell interpolation
     noctalia.runAsync({ "xdg-open", url })
     return
   end
@@ -269,6 +273,12 @@ function onActivate(id)
   if answer ~= nil then
     noctalia.copyToClipboard(answer, "text/plain")
     noctalia.notify(noctalia.tr("notify.copied_title"), answer)
+    return
+  end
+
+  if id == "hint" then
+    local instance = getInstanceUrl()
+    noctalia.runAsync({ "xdg-open", instance })
     return
   end
 end

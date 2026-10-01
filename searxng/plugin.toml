@@ -15,7 +15,7 @@ entry = "launcher.luau"
 prefix = "sx"
 glyph = "world-search"
 debounce_ms = 300
-include_in_global_search = false
+include_in_global_search = true
 
 [[setting]]
 key = "instance_url"
