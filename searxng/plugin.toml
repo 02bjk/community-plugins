@@ -1,0 +1,53 @@
+id = "02bjk/searxng"
+name = "SearXNG Search"
+version = "1.0.0"
+plugin_api = 24
+author = "02bjk"
+license = "MIT"
+icon = "world-search"
+description = "Search the web privately using SearXNG directly from the Noctalia launcher."
+tags = ["launcher", "network", "utility", "privacy"]
+dependencies = ["xdg-open"]
+
+[[launcher_provider]]
+id = "search"
+entry = "launcher.luau"
+prefix = "sx"
+glyph = "world-search"
+debounce_ms = 300
+include_in_global_search = false
+
+[[setting]]
+key = "instance_url"
+type = "string"
+label_key = "settings.instance_url.label"
+description_key = "settings.instance_url.description"
+default = "https://searx.be"
+
+[[setting]]
+key = "categories"
+type = "string"
+label_key = "settings.categories.label"
+description_key = "settings.categories.description"
+default = "general"
+
+[[setting]]
+key = "max_results"
+type = "int"
+label_key = "settings.max_results.label"
+description_key = "settings.max_results.description"
+default = 8
+min = 1
+max = 20
+
+[[setting]]
+key = "safesearch"
+type = "select"
+label_key = "settings.safesearch.label"
+description_key = "settings.safesearch.description"
+default = "0"
+options = [
+    { value = "0", label_key = "settings.safesearch.options.none" },
+    { value = "1", label_key = "settings.safesearch.options.moderate" },
+    { value = "2", label_key = "settings.safesearch.options.strict" },
+]

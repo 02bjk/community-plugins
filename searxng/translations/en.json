@@ -1,0 +1,53 @@
+{
+  "settings": {
+    "instance_url": {
+      "label": "SearXNG Instance URL",
+      "description": "Base URL of the SearXNG instance (e.g. https://searx.be or http://localhost:8080)"
+    },
+    "categories": {
+      "label": "Search Categories",
+      "description": "Comma-separated search categories (e.g. general, science, it, news)"
+    },
+    "max_results": {
+      "label": "Maximum Results",
+      "description": "Maximum number of search results to display in the launcher"
+    },
+    "safesearch": {
+      "label": "SafeSearch Filter",
+      "description": "Filter adult content in search results",
+      "options": {
+        "none": "None",
+        "moderate": "Moderate",
+        "strict": "Strict"
+      }
+    }
+  },
+  "hint": {
+    "title": "Search with SearXNG",
+    "subtitle": "Type your search query..."
+  },
+  "loading": {
+    "title": "Searching SearXNG..."
+  },
+  "results": {
+    "answer_badge": "Answer",
+    "answer_subtitle": "Instant Answer - press Enter to copy",
+    "no_results_title": "No results found",
+    "no_results_subtitle": "Try a different search query.",
+    "open_search_title": "Search SearXNG for '{query}'"
+  },
+  "errors": {
+    "network_title": "Connection failed",
+    "network_subtitle": "Could not reach the SearXNG instance. Check your internet connection.",
+    "format_disabled_title": "JSON API disabled",
+    "format_disabled_subtitle": "Instance '{instance}' does not have JSON format enabled.",
+    "rate_limit_title": "Rate limit exceeded",
+    "rate_limit_subtitle": "The SearXNG instance rejected the request due to rate limiting.",
+    "server_title": "SearXNG Server Error",
+    "parse_title": "Parsing Error",
+    "parse_subtitle": "Received invalid response from SearXNG."
+  },
+  "notify": {
+    "copied_title": "Copied to clipboard"
+  }
+}
