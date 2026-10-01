@@ -4,9 +4,19 @@
 -- Usage from launcher: `/sx <query>`
 -- Queries SearXNG instance for private search results, instant answers, and snippets.
 
-local DEFAULT_INSTANCE = "https://searx.be"
+local DEFAULT_INSTANCE = "https://search.lumy.live"
 local activeQuery = ""
 local requestSequence = 0
+
+local HTML_ENTITIES = {
+  ["&amp;"] = "&",
+  ["&lt;"] = "<",
+  ["&gt;"] = ">",
+  ["&quot;"] = "\"",
+  ["&#39;"] = "'",
+  ["&apos;"] = "'",
+  ["&nbsp;"] = " ",
+}
 
 local function trim(s)
   if type(s) ~= "string" then
@@ -15,58 +25,24 @@ local function trim(s)
   return (s:gsub("^%s+", ""):gsub("%s+$", ""))
 end
 
-local function decodeNumericEntity(codeStr, base)
-  local num = tonumber(codeStr, base)
-  if num and num > 0 and num < 0x10FFFF then
-    local ok, char = pcall(utf8.char, num)
-    if ok and char then
-      return char
-    end
-  end
-  return ""
-end
-
 local function sanitizeHtml(s)
-  if type(s) ~= "string" then
+  if type(s) ~= "string" or s == "" then
     return ""
   end
   -- Strip HTML tags
   local cleaned = s:gsub("<[^>]+>", "")
-  -- Named HTML entities
-  cleaned = cleaned:gsub("&amp;", "&")
-  cleaned = cleaned:gsub("&lt;", "<")
-  cleaned = cleaned:gsub("&gt;", ">")
-  cleaned = cleaned:gsub("&quot;", "\"")
+  -- Decode common HTML entities via lookup table
+  cleaned = cleaned:gsub("&%w+;", HTML_ENTITIES)
   cleaned = cleaned:gsub("&#39;", "'")
-  cleaned = cleaned:gsub("&apos;", "'")
-  cleaned = cleaned:gsub("&nbsp;", " ")
-  -- Hex & decimal entities
-  cleaned = cleaned:gsub("&#x([0-9a-fA-F]+);", function(h)
-    return decodeNumericEntity(h, 16)
-  end)
-  cleaned = cleaned:gsub("&#(%d+);", function(d)
-    return decodeNumericEntity(d, 10)
-  end)
   return trim(cleaned)
-end
-
-local function cleanJsonc(text)
-  if type(text) ~= "string" then
-    return ""
-  end
-  -- Strip multi-line block comments /* ... */
-  local noBlock = text:gsub("/%*.-%*/", "")
-  -- Strip single-line comments // ...
-  local noLine = noBlock:gsub("//[^\r\n]*", "")
-  return noLine
 end
 
 local function isValidUrl(url)
   if type(url) ~= "string" then
     return false
   end
-  -- Strictly require http:// or https:// and disallow whitespace or control chars
-  return url:match("^https?://[%w%p]+$") ~= nil and not url:match("%s")
+  -- Strictly require http:// or https:// and disallow whitespace
+  return url:match("^https?://%S+$") ~= nil
 end
 
 local function getInstanceUrl()
@@ -260,11 +236,14 @@ function onQuery(query)
       return
     end
 
-    local cleanBody = cleanJsonc(response.body or "")
-    local decoded, err = noctalia.json.decode(cleanBody)
+    -- Fast native C++ JSON decode; no heavy Lua regex string manipulation
+    local decoded, err = noctalia.json.decode(response.body or "")
     if type(decoded) ~= "table" then
       launcher.setResults(query, {
-        errorRow(noctalia.tr("errors.parse_title"), err or noctalia.tr("errors.parse_subtitle")),
+        errorRow(
+          noctalia.tr("errors.parse_title"),
+          err or "SearXNG instance returned non-JSON response."
+        ),
       })
       return
     end

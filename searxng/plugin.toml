@@ -22,7 +22,7 @@ key = "instance_url"
 type = "string"
 label_key = "settings.instance_url.label"
 description_key = "settings.instance_url.description"
-default = "https://searx.be"
+default = "https://search.lumy.live"
 
 [[setting]]
 key = "categories"

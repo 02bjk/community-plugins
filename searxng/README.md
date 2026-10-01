@@ -30,7 +30,7 @@ Open the Noctalia launcher and type `/sx` followed by your search query:
 
 | Setting | Type | Default | Description |
 | --- | --- | --- | --- |
-| `instance_url` | `string` | `https://searx.be` | The base URL of the SearXNG instance to query. |
+| `instance_url` | `string` | `https://search.lumy.live` | The base URL of the SearXNG instance to query. |
 | `categories` | `string` | `general` | Comma-separated list of search categories (e.g., `general`, `it`, `science`). |
 | `max_results` | `int` | `8` | Maximum number of web results displayed in the launcher. |
 | `safesearch` | `select` | `0` | SafeSearch filter level: None (`0`), Moderate (`1`), or Strict (`2`). |
