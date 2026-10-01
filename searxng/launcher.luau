@@ -8,9 +8,6 @@ local DEFAULT_INSTANCE = "https://search.lumy.live"
 local activeQuery = ""
 local requestSequence = 0
 
-noctalia.log("[searxng] launcher provider script initialized")
-
-
 local HTML_ENTITIES = {
   ["&amp;"] = "&",
   ["&lt;"] = "<",
